@@ -2,6 +2,7 @@ from logic import calculate_protein_target, add_meal, total_protein, remaining_p
 
 
 def main():
+    # Handle the CLI version of the application
     weight = float(input("Enter your weight in kg: "))
     daily_target = calculate_protein_target(weight)
     print(f"Your daily protein target is {daily_target} grams.")
@@ -19,4 +20,5 @@ def main():
         print(f"You need {remaining_protein(daily_target, current_protein)} more grams to reach your target.")
 
 if __name__ == "__main__":
+    # Run the CLI main function if this file is executed directly
     main()

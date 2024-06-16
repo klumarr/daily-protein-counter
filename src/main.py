@@ -27,6 +27,7 @@ def gui_main():
     root.mainloop()
 
 if __name__ == "__main__":
+    # Initialize and run the GUI application
     if len(sys.argv) > 1 and sys.argv[1] == 'cli':
         cli_main()
     else:
