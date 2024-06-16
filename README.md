@@ -12,16 +12,20 @@ A Python application to help users track their daily protein intake. The applica
 Clone the repository:
 ```bash
 git clone https://github.com/yourusername/protein-counter.git
-cd protein-counter
+cd protein-counter 
+```
 
 ## Usage
 
 ### GUI Version
 ```bash
 python src/main.py
+```
 
 ### CLI Version
+```bash
 python src/main.py cli
+```
 
 ## Screenshots
 ![GUI](screenshots/daily-protein-counter-screenshot-gui-1.png)
