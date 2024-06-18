@@ -56,7 +56,7 @@ class ProteinCounterApp:
         except (IndexError, ValueError):
             # Show error message if input is invalid
             messagebox.showerror("Invalid Input", "Please enter a valid weight.")
-    
+
     def add_meal(self):
         # Add a meal and update the labels
         try:
@@ -71,9 +71,9 @@ class ProteinCounterApp:
 
     def update_labels(self):
         # Update the labels to reflect the current total and remaining protein
-        current_protein = total_protein(self.meals)
-        self.total_label.config(text=f"Total protein so far: {current_protein} grams")
-        self.remaining_label.config(text=f"Remaining protein: {remaining_protein(self.daily_target, current_protein)} grams")
+            current_protein = total_protein(self.meals)
+            self.total_label.config(text=f"Total protein so far: {int(current_protein)} grams")
+            self.remaining_label.config(text=f"Remaining protein: {int(remaining_protein(self.daily_target, current_protein))} grams")
 
 if __name__ == "__main__":
     # Initialize and run the GUI application

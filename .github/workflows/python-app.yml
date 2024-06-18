@@ -1,0 +1,35 @@
+# This is a GitHub Actions workflow configuration file
+# The purpose of this file is to set up Continuous Integration (CI) for the project
+# It automatically runs tests on every push and pull request to ensure code quality
+
+name: Python application  # The name of the workflow
+
+# The events that trigger the workflow
+on:
+  - push  # Triggers when code is pushed to the repository
+  - pull_request  # Triggers when a pull request is created or updated
+
+jobs:  # Defines the jobs that will run as part of this workflow
+
+  build:  # The name of the job (can be anything descriptive)
+
+    runs-on: ubuntu-latest  # Specifies the environment to run the job (latest version of Ubuntu)
+
+    steps:  # A list of steps that will be executed in the job
+
+    - uses: actions/checkout@v2  # Checks out the repository's code
+
+    - name: Set up Python  # A step to set up the Python environment
+      uses: actions/setup-python@v2  # Uses a GitHub Action to set up Python
+      with:
+        python-version: '3.x'  # Specifies the version of Python to use (latest version of Python 3)
+
+    - name: Install dependencies  # A step to install the necessary dependencies
+      run: |  # The commands to run in this step
+        python -m pip install --upgrade pip  # Upgrades pip to the latest version
+        pip install pytest  # Installs pytest (change to unittest if needed)
+        pip install -r requirements.txt  # Installs dependencies listed in requirements.txt
+
+    - name: Run tests  # A step to run the tests
+      run: |  # The commands to run in this step
+        pytest tests  # Runs the tests using pytest (change to unittest if needed)

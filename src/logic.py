@@ -1,4 +1,7 @@
 def calculate_protein_target(weight):
+    if weight <= 0:
+        raise ValueError("Weight must be a positive number")
+
     return weight * 2
 
     """
@@ -9,8 +12,10 @@ def calculate_protein_target(weight):
 
     Returns:
     float: The daily protein target in grams.
+
+    Error: Raise error is weight entered is under or equal to 0 grams
     """
-        
+
 
 
 food_database = {
@@ -48,4 +53,3 @@ def total_protein(meals):
     return sum(protein for _, protein in meals)
 def remaining_protein(target, current):
     return target - current
-
