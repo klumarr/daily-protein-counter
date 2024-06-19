@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Protein Counter</title>
+</head>
+<body>
+    <h1>Daily Protein Counter</h1>
+
+    <form action="{{ url_for('add_meal') }}" method="POST">
+        <label for="food">Food:</label>
+        <select name="food" id="food">
+            {% for food, protein in food_database.items() %}
+                <option value="{{ food }}">{{ food }}</option>
+            {% endfor %}
+        </select>
+        <label for="amount">Amount (grams):</label>
+        <input type="number" name="amount" required>
+        <button type="submit">Add Meal</button>
+    </form>
+
+    <h2>Meals Added</h2>
+    <ul>
+        {% for meal in meals %}
+            <li>{{ meal.food }} - {{ meal.amount }} grams - {{ meal.protein }} grams of protein
+                <form action="{{ url_for('delete_meal', index=loop.index0) }}" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+                <a href="{{ url_for('edit_meal', index=loop.index0) }}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('new_food') }}">Add New Food</a>
+</body>
+</html>

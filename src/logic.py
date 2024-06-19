@@ -1,3 +1,15 @@
+import os
+import json
+
+# Get the current directory of the file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the path to food_database.json
+food_database_path = os.path.join(current_dir, 'food_database.json')
+
+with open(food_database_path, 'r') as f:
+    food_database = json.load(f)
+
 def calculate_protein_target(weight):
     if weight <= 0:
         raise ValueError("Weight must be a positive number")
@@ -15,23 +27,6 @@ def calculate_protein_target(weight):
 
     Error: Raise error is weight entered is under or equal to 0 grams
     """
-
-
-
-food_database = {
-    'chicken breast': 31,
-    'chicken thigh': 25,
-    'chicken drumstick': 23,
-    'tuna': 28,
-    'egg': 6,
-    'almonds': 21,
-    'walnuts': 15,
-    'protein shake': 25,
-    'rice': 2.5,
-    'pasta': 5,
-
-    # Add more foods here
-}
 
 def add_meal(meals, food, amount):
     """

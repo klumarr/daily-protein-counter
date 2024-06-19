@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Meal</title>
+</head>
+<body>
+    <h1>Edit Meal</h1>
+
+    <form action="{{ url_for('edit_meal', index=index) }}" method="POST">
+        <label for="food">Food:</label>
+        <select name="food" id="food">
+            {% for food, protein in food_database.items() %}
+                <option value="{{ food }}" {% if food == meal.food %}selected{% endif %}>{{ food }}</option>
+            {% endfor %}
+        </select>
+        <label for="amount">Amount (grams):</label>
+        <input type="number" name="amount" value="{{ meal.amount }}" required>
+        <button type="submit">Update Meal</button>
+    </form>
+</body>
+</html>
